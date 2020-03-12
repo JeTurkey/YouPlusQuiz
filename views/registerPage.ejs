@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title> YouPlus Quiz </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+    </head>
+    <body class="text-center" style="display: flex; align-items: center; padding-top: 40px; padding-bottom: 40px; background-color: #f5f5f5;">
+        <div class="container">
+            <div class="row" style="widows: 100%; padding: 15px;">
+                <form method="POST" action="/register" class="form-signin" style="margin:auto" >
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted"> 邮箱地址将仅用于密码找回和登陆, 我们保证不会泄漏.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername">Username</label>
+                        <input name="username" type="text" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted"> 登陆时使用的用户名.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="classSelection">Class</label>
+                        <select name="class" class="form-control" name="classSelection" id="classSelection">
+                            <option selected> Please Choose </option>
+                            <option value="FIT9131"> FIT9131 </option>
+                            <option value="FIT9132"> FIT9132 </option>
+                            <option value="FIT9136"> FIT9136 </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tutorSelection">Tutor</label>
+                        <select name="tutor" class="form-control" name="tutorSelection" id="tutorSelection">
+                            <option selected> Please Choose </option>
+                            <option value="Ray"> Ray </option>
+                            <option value="Koi"> Koi </option>
+                            <option value="Rina"> Rina </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                   
+                    <p class='mt-5 mb-3 text-muted'> © 2018-2020  </p>
+                    <a href="http://www.beian.miit.gov.cn"> 京ICP备18061352号 </a>
+                </form>
+            </div>
+
+
+        </div>
+        
+        
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+
+</html>

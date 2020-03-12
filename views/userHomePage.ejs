@@ -1,0 +1,25 @@
+<%- include ("partials/header") %>
+
+<p>这里会显示一排学生注册了哪些课</p>
+
+<p>目前不考虑一个学生多个课的情况，只做一个9136试试。然后之后再去做1 to N 的东西</p>
+
+<!--  课程row -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" name="classCode"> <%= data[0].class %> </h5>
+                    <p class="card-text">Introduction to Python and Algorithm.</p>
+                    <a href="/userHomePage/<%= data[0].class %>" class="btn btn-primary">Quiz</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<%- include ("partials/footer") %>

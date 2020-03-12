@@ -1,0 +1,22 @@
+<%- include ("partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h3> 添加新的课程 </h3>
+            <form action="/addNewCourse" method="POST">
+                <div class="form-group">
+                    <label for="inputClassCode"> 课程代号 </label>
+                    <input type="text" name="classCode" class="form-control" id="inputClassCode">
+                </div>
+                <div class="form-group">
+                    <label for="inputClassName"> 课程名称 </label>
+                    <input type="text" name="className" class="form-control" id="inputClassName">
+                </div>
+                <button type="submit" class="btn btn-primary"> submit </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ("partials/footer") %>

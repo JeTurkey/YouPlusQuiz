@@ -1,0 +1,93 @@
+<%- include ("partials/header") %>
+
+
+题目都在这儿
+
+<div class="container">
+    <form method="POST" action="/submitQuiz">
+        <div class="row">
+            <div class="col-10">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text"> What order does Stack follow ?</p>
+                        <div>
+                            <p> A. Last-in-first-out </p>
+                        </div>
+                        <div>
+                            <p> B. First-in-first-out</p>
+                        </div>
+                        <div>
+                            <p> answer </p>
+                            <select class="form-control" name="answerSelection" id="answerSelection">
+                                <option selected> Please Choose </option>
+                                <option value="A"> A </option>
+                                <option value="B"> B </option>
+                                <option value="C"> C </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2%;">
+            <div class="col-10">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text"> What order does Queue follow ?</p>
+                        <div>
+                            <p> A. Last-in-first-out </p>
+                        </div>
+                        <div>
+                            <p> B. First-in-first-out</p>
+                        </div>
+                        <div>
+                            <p> answer </p>
+                            <select class="form-control" name="answerSelection" id="answerSelection">
+                                <option selected> Please Choose </option>
+                                <option value="A"> A </option>
+                                <option value="B"> B </option>
+                                <option value="C"> C </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% data.forEach(function(item){ %>
+            <div class="row" style="margin-top: 2%;">
+                <div class="col-10">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text"> <%= item.question %></p>
+                            <% item.options.forEach(function(op){ %>
+                                <div>
+                                    <p> <%= op.option %> </p>
+                                </div>
+                            <% }) %>
+                            <div>
+                                <p> answer </p>
+                                <select class="form-control" name="answerSelection" id="answerSelection">
+                                    <option selected> Please Choose </option>
+                                    <option value="A"> A </option>
+                                    <option value="B"> B </option>
+                                    <option value="C"> C </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        <div class="row" style="margin-top: 2%;">
+            <div class="col-10">
+                <button type="submit" class="btn btn-primary btn-block" > Submit </button>
+            </div>
+        </div>
+        
+    </form>
+</div>
+
+
+
+
+<%- include ("partials/footer") %>
