@@ -1,0 +1,122 @@
+<%- include ("partials/header") %>
+
+<h3> 老师添加问题表 </h3>
+
+<form action="/tutorAddQuestions" method="POST">
+    <div class="container">
+        <div class="card">
+            <div class="row" style="margin-top: 2%;">
+                <div class="col-10" style="margin:auto;">
+                    <div class="form-group">
+                        <label for="intputClassCode"> 班级编号 (i.e. FIT9136) </label>
+                        <input class="form-control" type="text" name="classCode" id="inputClassCode">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10" style="margin:auto;">
+                    <div class="form-group">
+                        <label for="inputClassType"> 类型 </label>
+                        <select class="form-control" name="classType" id="inputClassType">
+                            <option value="平常班"> 平常班 </option>
+                            <option value="普通复习班"> 普通复习班 </option>
+                            <option value="期末复习班"> 期末复习班 </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10" style="margin:auto;">
+                    <div class="form-group">
+                        <label for="inputWeek"> 周数 </label>
+                        <select class="form-control" name="week" id="inputWeek">
+                            <option value="1"> 1 </option>
+                            <option value="2"> 2 </option>
+                            <option value="3"> 3 </option>
+                            <option value="4"> 4 </option>
+                            <option value="5"> 5 </option>
+                            <option value="6"> 6 </option>
+                            <option value="7"> 7 </option>
+                            <option value="8"> 8 </option>
+                            <option value="9"> 9 </option>
+                            <option value="10"> 10 </option>
+                            <option value="11"> 11 </option>
+                            <option value="12"> 12 </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="questionBlock">
+                <div class="col-10" style="margin:auto;">
+                    <div class="form-group">
+                        <label for="inputQuestion">题目</label>
+                        <input class="form-control" type="text" name="question" id="inputQuestion">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputOption1"> 选项 A </label>
+                        <input class="form-control" type="text" name="options" id="inputOption1">
+                        <label for="inputOption2"> 选项 B </label>
+                        <input class="form-control" type="text" name="options" id="inputOption2">
+                        <label for="inputOption3"> 选项 C </label>
+                        <input class="form-control" type="text" name="options" id="inputOption3">
+                        <label for="inputOption4"> 选项 D </label>
+                        <input class="form-control" type="text" name="options" id="inputOption4">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAnswer"> 答案 </label>
+                        <select class="form-control" name="answers" id="inputAnswer">
+                            <option value="A"> A </option>
+                            <option value="B"> B </option>
+                            <option value="C"> C </option>
+                            <option value="D"> D </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-4" style="margin:auto;">
+                <button name="directButton" type="submit" value="1" class="btn btn-primary btn-block"> 保存并再添加一题 </button>
+            </div>
+            <div class="col-4" style="margin:auto;">
+                <button name="directButton" type="submit" value="2" class="btn btn-success btn-block"> 保存并结束 </button>
+            </div>
+        </div>
+        <!-- <div class="row" style="margin-top: 2%;">
+            <div class="col-10" style="margin:auto;">
+                <button type="submit" class="btn btn-success btn-block"> submit </button>
+            </div>
+        </div> -->
+    </div>
+    </div>
+</form>
+
+<script>
+    $('#addNewQuestion').click(function () {
+        $('#questionBlock').last().after('<div class="row" id="questionBlock">' +
+                '<div class="col-10" style="margin:auto;">'+
+                    '<div class="form-group">' +
+                        '<label for="inputQuestion">题目</label>'+
+                        '<input class="form-control" type="text" name="question" id="inputQuestion">'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                        '<label for="inputOption1"> 选项 A </label>'+
+                        '<input class="form-control" type="text" name="options" id="inputOption1">'+
+                        '<label for="inputOption2"> 选项 B </label>'+
+                        '<input class="form-control" type="text" name="options" id="inputOption2">'+
+                        '<label for="inputOption3"> 选项 C </label>'+
+                        '<input class="form-control" type="text" name="options" id="inputOption3">'+
+                        '<label for="inputOption4"> 选项 D </label>'+
+                        '<input class="form-control" type="text" name="options" id="inputOption4">'+
+                    '</div>'+
+                '</div>'+
+            '</div>')
+    });
+
+    $('#removeLastQuestion').click(function(){
+        $('#questionBlock').last().remove();
+    })
+</script>
+
+<%- include ("partials/footer") %>

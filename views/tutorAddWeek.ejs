@@ -1,0 +1,41 @@
+<%- include ("partials/header") %>
+
+
+
+<!--  课程row -->
+<form action="/tutorAddWeeks" method="POST">
+    <div class="container">
+        <div class="row">
+            <div class="col-10" style="margin:auto;">
+                <div class="card">
+                    <div class="form-group">
+                        <label for="inputWeek"> Week数 </label>
+                        <input type="text" class="form-control" name="weekCount" id="inputWeek">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputClassCode"> 课程编码 </label>
+                        <input type="text" class="form-control" name="classCode" id="inputClassCode">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputClassTitle"> 内容标题 </label>
+                        <input type="text" class="form-control" name="weeklyTitle" id="inputWeeklyTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputWeeklyContent"> 课程内容 </label>
+                        <input type="text" class="form-control" name="weeklyContent" id="inputClassContent">
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2%;">
+            <div class="col-10" style="margin:auto;">
+                <button type="submit" class="btn btn-success btn-block"> submit </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<%- include ("partials/footer") %>

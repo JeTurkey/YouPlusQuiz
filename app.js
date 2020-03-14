@@ -105,13 +105,68 @@ app.get('/userHomePage/:currentPage/:id', isLoggedIn, function(req, res){
         }
     })
 })
-
+// Quiz 交作业
 app.post("/submitQuiz", isLoggedIn, function(req, res){
     var answers = req.body.answerSelection;
     console.log(answers)
     res.redirect('/userHomePage')
 
 })
+
+app.get('/tutorAddQuestions', isLoggedIn, function(req, res){
+    res.render('tutorAddQuestion')
+})
+
+app.post('/tutorAddQuestions', isLoggedIn, function(req, res){
+    var question = req.body.question
+    var options = req.body.options
+    var answers = req.body.answers
+
+    var newQuestion = new questions({
+        classtype: req.body.classType,
+        class: req.body.classCode,
+        week: req.body.week,
+        question: req.body.question,
+        // options: req.body.options,
+        correctanswer: req.body.answers
+    })
+    options.forEach(function(item){
+        newQuestion.options.push({
+            option: item
+        })
+    })
+    questions.create(newQuestion, function(err, rst){
+        if (req.body.directButton == "1"){
+            console.log(rst)
+            res.redirect('/tutorAddQuestions')
+        }else{
+            console.log(rst)
+            res.redirect('/userHomePage')
+        }
+    })
+    
+})
+
+app.get('/tutorAddWeeks', isLoggedIn, function(req, res){
+    res.render("tutorAddWeek")
+})
+
+app.post('/tutorAddWeeks', isLoggedIn, function(req, res){
+    var newWeek = new weekly({
+        classcode: req.body.classCode,
+        week: req.body.weekCount,
+        weeklycontent: req.body.weeklyContent,
+        weeklytitle: req.body.weeklyTitle
+    })
+
+    weekly.create(newWeek, function(err, rst){
+        console.log(rst)
+        res.redirect('userHomePage')
+    })
+
+})
+
+
 
 // middleWare
 function isLoggedIn(req, res, next){
