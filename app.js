@@ -94,7 +94,7 @@ app.get("/userHomePage/:id", isLoggedIn, function(req, res){
 })
 
 // Quiz的weekly题目界面
-app.get('/userHomePage/:currentPage/:id', isLoggedIn, function(req, res){
+app.get('/userHomePage/:currentPage/week-:id', isLoggedIn, function(req, res){
     
     questions.find({week: req.params.id, class: req.params.currentPage}, function(err, rst){
         if(err){
@@ -127,7 +127,6 @@ app.post('/tutorAddQuestions', isLoggedIn, function(req, res){
         class: req.body.classCode,
         week: req.body.week,
         question: req.body.question,
-        // options: req.body.options,
         correctanswer: req.body.answers
     })
     options.forEach(function(item){
