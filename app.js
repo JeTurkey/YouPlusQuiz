@@ -10,6 +10,7 @@ var express               = require("express"),
     courseDescription     = require("./models/courseDescriptionDB"),
     weekly                = require("./models/weeklyDB"),
     questions             = require("./models/questionDB")
+    
 
 mongoose.connect("mongodb://localhost/youplusquiz", { useNewUrlParser: true})
 
@@ -56,14 +57,24 @@ app.get("/register", function(req, res){
 })
 // 注册POST
 app.post("/register", function(req, res){
-    User.register(new User({
+    var units = req.body.unitSelected
+    console.log(units)
+    var newUser = new User({
         username: req.body.username,
         email: req.body.email,
-        class: req.body.class,
         tutor: req.body.tutor
-    }), req.body.password, function(err, user){
+    })
+    
+    units.forEach(function(item){
+        newUser.class.push({
+            unitcode: item
+        })
+    })
+    
+    User.register(newUser, req.body.password, function(err, user){
         if(err){
-            return res.render("register")
+            console.log(user)
+            return res.render("registerPage")
         }else{
             passport.authenticate("local")(req, res, function(){
                 res.redirect("/userHomePage")
@@ -82,7 +93,7 @@ app.get("/userHomePage", isLoggedIn, function(req, res){
 
 // quiz的weekly页面
 app.get("/userHomePage/:id", isLoggedIn, function(req, res){
-    weekly.find({classcode: req.params.id}, function(err, rst){
+    weekly.find({unitcode: req.params.id}, function(err, rst){
         if(err){
             return err
         }else{
@@ -96,7 +107,7 @@ app.get("/userHomePage/:id", isLoggedIn, function(req, res){
 // Quiz的weekly题目界面
 app.get('/userHomePage/:currentPage/week-:id', isLoggedIn, function(req, res){
     
-    questions.find({week: req.params.id, class: req.params.currentPage}, function(err, rst){
+    questions.find({week: req.params.id, unitcode: req.params.currentPage}, function(err, rst){
         if(err){
             return err
         }else{
@@ -124,7 +135,7 @@ app.post('/tutorAddQuestions', isLoggedIn, function(req, res){
 
     var newQuestion = new questions({
         classtype: req.body.classType,
-        class: req.body.classCode,
+        unitcode: req.body.classCode,
         week: req.body.week,
         question: req.body.question,
         correctanswer: req.body.answers
@@ -152,7 +163,7 @@ app.get('/tutorAddWeeks', isLoggedIn, function(req, res){
 
 app.post('/tutorAddWeeks', isLoggedIn, function(req, res){
     var newWeek = new weekly({
-        classcode: req.body.classCode,
+        unitcode: req.body.classCode,
         week: req.body.weekCount,
         weeklycontent: req.body.weeklyContent,
         weeklytitle: req.body.weeklyTitle
@@ -160,9 +171,25 @@ app.post('/tutorAddWeeks', isLoggedIn, function(req, res){
 
     weekly.create(newWeek, function(err, rst){
         console.log(rst)
-        res.redirect('userHomePage')
+        res.redirect('/userHomePage')
     })
 
+})
+
+app.get('/addUnit', isLoggedIn, function(req, res){
+    res.render('addUnit')
+})
+
+app.post('/addUnit', isLoggedIn, function(req, res){
+    var newUnit = new courseDescription({
+        unitcode: req.body.unitcode,
+        unitname: req.body.unitname,
+        unittutor: req.body.unittutor
+    })
+    courseDescription.create(newUnit, function(err, rst){
+        console.log(rst)
+        res.redirect('/userHomePage')
+    })
 })
 
 

@@ -16,20 +16,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 </head>
 
-<body style="background-color: rgb(144, 220, 223);">
+<body style="background-color: rgb(144, 220, 223, 1);">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand navbar-light bg-light fixed-top">
+                <a href="/userHomePage" class="navbar-brand"> 3Qs </a>
 
-    <div class="navbar navbar-expand navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <% if (currentUser.username == "admin"){ %>
-                    <li>
-                        <a href="/tutorAddWeeks"> 添加日程 </a>
-                    </li>
-                    <li class="nav-item"> 
-                        <a href="/tutorAddQuestions">添加题目</a> 
-                    </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <% if (currentUser.username == "admin"){ %>
+                        <li class="nav-item">
+                            <a href="/userHomePage" class="nav-link"> 回到首页 </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/addUnit"> 添加课程 </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tutorAddWeeks"> 添加日程 </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tutorAddQuestions">添加题目</a>
+                        </li>
+                        
 
-                <%}%>
-            </ul>
+                        <%}else{%>
+                        <li class="nav-item">
+                            <a href="/userHomePage" class="nav-link"> 回到首页 </a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </div>
+    

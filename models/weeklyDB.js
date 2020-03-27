@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var weeklySchema = new mongoose.Schema({
-    classcode: String,
+    unitcode: String,
     week: String,
     weeklycontent: String,
     weeklytitle: String

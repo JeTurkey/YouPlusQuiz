@@ -3,7 +3,7 @@
 <p> 这里显示 week 类似flux的感觉 </p>
 <!--  课程row -->
 
-<div class="container">
+<div class="container" style="margin-top: 10%;">
     <% data.forEach(function(item){ %>
         <div class="row d-flex">
             <div class="col-10">
@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> <%= item.weeklytitle %> </h5>
                         <p class="card-text"> <%= item.weeklycontent %>.</p>
-                        <a href="/userHomePage/<%= item.classcode %>/week-<%= item.week %>" class="btn btn-primary">Do Quiz</a>
+                        <a href="/userHomePage/<%= item.unitcode %>/week-<%= item.week %>" class="btn btn-primary">Do Quiz</a>
                     </div>
                 </div>
             </div>

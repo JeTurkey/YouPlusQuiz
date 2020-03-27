@@ -6,7 +6,7 @@ var optionSchema = new mongoose.Schema({
 
 var questionSchema = new mongoose.Schema({
     classtype: String,
-    class: String,
+    unitcode: String,
     week: String,
     question: String,
     options: [optionSchema],

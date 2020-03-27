@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 
 var courseDescriptionSchema = new mongoose.Schema({
-    class: String,
-    nameofcourse: String
+    unitcode: String,
+    uintname: String,
+    unittutor: String
 })
 
 var coursedescription = mongoose.model('coursedescription', courseDescriptionSchema)

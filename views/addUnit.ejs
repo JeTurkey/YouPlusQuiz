@@ -1,0 +1,28 @@
+<%- include ("partials/header") %>
+
+<div class="row">
+    <div class="col-10">
+        <div class="card">
+            <form action="/addUnit" method="POST">
+                <h3>添加课程</h3>
+                <div class="form-group">
+                    <label for="unitName">课程名称</label>
+                    <input type="text" name="unitName" id="unitName">
+                </div>
+                <div class="form-group">
+                    <label for="unitCode">课程代码</label>
+                    <input type="text" name="unitCode" id="unitCode">
+                </div>
+                <div class="form-group">
+                    <label for="unitTutor">课程老师</label>
+                    <input type="text" name="unitTutor" id="unitTutor">
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include ("partials/footer") %>
